@@ -1,0 +1,24 @@
+name: LenaNW-Log
+version: 1.0.0
+main: com.lenanw.log.LenaNWLog
+api-version: 1.8.8
+description: Kapsamlı Minecraft Log Sistemi
+author: LenaNW
+
+commands:
+  log:
+    description: Log sistemi komutları
+    usage: /log <reload|info>
+    permission: lenanw.log.admin
+  logs:
+    description: Log dosyalarını görüntüle
+    usage: /logs <type> [player]
+    permission: lenanw.log.view
+
+permissions:
+  lenanw.log.admin:
+    description: Log sistemi yönetici izni
+    default: op
+  lenanw.log.view:
+    description: Log dosyalarını görüntüleme izni
+    default: op 
