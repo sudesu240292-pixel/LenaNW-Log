@@ -1,0 +1,141 @@
+# LenaNW Log Sistemi Konfigürasyonu
+
+# Log ayarları
+logs:
+  # Log dosyalarının saklanacağı klasör
+  directory: "logs"
+  
+  # Log dosyalarının maksimum boyutu (MB)
+  max_file_size: 10
+  
+  # Log dosyalarının saklanma süresi (gün)
+  retention_days: 30
+  
+  # Log formatı
+  format:
+    timestamp: "HH:mm:ss"
+    date: "yyyy-MM-dd"
+
+# Discord Webhook ayarları
+discord:
+  # Discord webhook'ları etkinleştir
+  enabled: true
+  
+  # Webhook URL'leri
+  webhooks:
+    auth: "https://discord.com/api/webhooks/1401599972545134733/DIuTjqkXqmcfH3uM2Vd9idthZsDw-VWsj-VizACQjdkdD7mSYsX15-ia_I2X-PSMAcwi"
+    item_drop: "https://discord.com/api/webhooks/1401600071656669340/z8HvBWzDIjxWSuJpYJqVuvhQleNommXIVX7R8FRAYf5Lbp42rj8u-iaG8PihKhE_MBYs"
+    item_pickup: "https://discord.com/api/webhooks/1401600071656669340/z8HvBWzDIjxWSuJpYJqVuvhQleNommXIVX7R8FRAYf5Lbp42rj8u-iaG8PihKhE_MBYs"
+    chest: "https://discord.com/api/webhooks/1401600335583379467/oEa2DXYDDWqtWPzLmeGXWw4oDziL65gSK3KG7-VXiD72w8rc0b3EVh2pi0SWgEVfwZjg"
+    death: "https://discord.com/api/webhooks/1401600701498527764/h_CWQoO0XzDmXnvfcCIPgR3n4SSOJTq2feJ9vON2l3d4eUmcHFD7zBhuzNk_8IsLwoaw"
+    claim: "https://discord.com/api/webhooks/YOUR_WEBHOOK_URL_HERE"
+    money: "https://discord.com/api/webhooks/1401600819832295578/b3EzYR5Mpl-cs8k1IVhIyft1x1dd1KXE-FVD7pCOnXchYB_ybX849I0khUuYW54bLWOC"
+    item_cleanup: "https://discord.com/api/webhooks/1401600441246290071/K9V8Xi296pEPCSQct3nYvTUECPLDoPqeIjU9Ty8RjGlwydEUUSOlXrYTqI7GE59XIQ4u"
+  
+  # Embed ayarları
+  embed:
+    # Embed renkleri (hex formatında)
+    colors:
+      auth: "00ff00"      # Yeşil
+      item_drop: "ff6600"  # Turuncu
+      item_pickup: "0099ff" # Mavi
+      chest: "ffff00"      # Sarı
+      death: "ff0000"      # Kırmızı
+      claim: "9900ff"      # Mor
+      money: "00ff99"      # Açık yeşil
+      item_cleanup: "666666" # Gri
+    
+    # Embed başlıkları
+    titles:
+      auth: "🔐 Kullanıcı Log"
+      item_drop: "📦 İtem Atma"
+      item_pickup: "📥 İtem Toplama"
+      chest: "🗃️ Sandık İşlemi"
+      death: "💀 Ölüm"
+      claim: "🏠 Claim İşlemi"
+      money: "💰 Para İşlemi"
+      item_cleanup: "🧹 Item Temizleme"
+    
+    # Embed ikonları
+    icons:
+      auth: "https://cdn.discordapp.com/emojis/1234567890.png"
+      item_drop: "https://cdn.discordapp.com/emojis/1234567890.png"
+      item_pickup: "https://cdn.discordapp.com/emojis/1234567890.png"
+      chest: "https://cdn.discordapp.com/emojis/1234567890.png"
+      death: "https://cdn.discordapp.com/emojis/1234567890.png"
+      claim: "https://cdn.discordapp.com/emojis/1234567890.png"
+      money: "https://cdn.discordapp.com/emojis/1234567890.png"
+      item_cleanup: "https://cdn.discordapp.com/emojis/1234567890.png"
+
+# Log türleri ayarları
+log_types:
+  auth:
+    enabled: true
+    include_ip: true
+    include_uuid: true
+  
+  item_drop:
+    enabled: true
+    log_amount: true
+    log_location: true
+  
+  item_pickup:
+    enabled: true
+    log_amount: true
+    log_location: true
+  
+  chest:
+    enabled: true
+    log_items: true
+    log_location: true
+  
+  death:
+    enabled: true
+    log_cause: true
+    log_location: true
+  
+  claim:
+    enabled: true
+    log_location: true
+    log_details: true
+  
+  money:
+    enabled: true
+    log_amount: true
+    log_target: true
+  
+  item_cleanup:
+    enabled: true
+    interval_minutes: 1
+    log_location: true
+    log_item_types: true
+
+# Yetkili log ayarları
+admin_log:
+  # Yetkili oyuncuların item işlemlerini logla
+  log_admin_items: true
+  
+  # Yetkili oyuncuların para işlemlerini logla
+  log_admin_money: true
+  
+  # Yetkili oyuncuların claim işlemlerini logla
+  log_admin_claims: true
+
+# Komut ayarları
+commands:
+  # Log komutlarını etkinleştir
+  enabled: true
+  
+  # Log görüntüleme sayfa boyutu
+  page_size: 10
+  
+  # Log görüntüleme maksimum satır
+  max_lines: 1000
+
+# Mesajlar
+messages:
+  prefix: "&6[LenaNW-Log] &r"
+  no_permission: "&cBu komutu kullanma yetkiniz yok!"
+  reload_success: "&aLog sistemi yeniden yüklendi!"
+  log_not_found: "&eLog dosyası bulunamadı: {type}"
+  log_empty: "&eLog dosyası boş: {type}" 
